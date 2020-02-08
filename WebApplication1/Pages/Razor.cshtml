@@ -1,0 +1,47 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Razor";
+}
+<h1 class="razorHeader">@ViewData["Title"]</h1>
+@*Nedanför följer variabler.*@
+@{    
+    List<String> kursLista = new List<string>()
+    {
+        "Webbutveckling I",
+        "Webbutveckling II",
+        "Webbutveckling III",
+        "Digital bildbehandling för webb",
+        "Databaser",
+        "Projektledning",
+        "JavaScriptbaserad webbutveckling",
+        "Programmering i C#.net"
+    };
+
+    string day = DateTime.Now.ToString("dddd");
+    string dayAndTime = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+
+}
+
+<div class="contentTextContainer">
+    @if(day == "måndag")
+    {
+        <p>Idag är det måndag!</p>
+    }
+    else
+    {
+        <p>Idag är det inte måndag!</p>
+    }
+    
+    <p><b>Datum / klockslag: </b>@dayAndTime</p>
+
+    <h3 id="courses">Kurser jag läst:</h3>
+    <ul>
+        @foreach (var kurs in kursLista)
+        {
+            <li>@kurs</li>
+        }
+    </ul>
+
+    
+</div>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication1</title>    
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <div class="mainContainer">
+
+        <!--Här ligger själva sidhuvudet, med datum och logotyp-->
+        <header class="siteheader">
+            <div class="logotype">
+                <img class="logotypePicture" src="~/images/wolf.jpg" />
+                <h3 class="logotypeText">Niklas Sida</h3>
+            </div>
+
+            <div class="buttonHolder">
+                <button id="colorGray">Grå färg</button>
+                <button id="reset">reset</button>
+            </div>
+
+            <div class="headerdate">
+                <p>Dagens datum är: @DateTime.Now.ToShortDateString()</p>
+            </div>
+        </header>
+
+        <div class="contentContainer">
+
+            <aside class="navigationholder">
+                <h3>Navigationen</h3>
+                <nav class="navigation">
+                    <ul class="navlist">
+                        <li class="navListItem"><a href="/">Test</a></li>
+                        <li class="navListItem"><a href="/Razor">Testar</a></li>
+                        <li class="navListItem"><a href="/about">Testat</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main role="main" class="content">
+                @RenderBody()
+            </main>            
+        </div>
+        
+        <footer>
+           <p class="footerText">Av Niklas Ståhlenberg - Kontakta mig via e-post: <a href="mailto: Stais3r@gmail.com">Niklas E-post</a></p>
+        </footer>
+    </div>
+
+    
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>    
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
